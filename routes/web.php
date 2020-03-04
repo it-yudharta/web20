@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('saya', function () {
+    return 'Halo, Apa Kabar?';
+});
+
+Route::get('siswa', 'SiswaController@index');
+
+Route::redirect('mahasiswa', 'siswa');
+
+Route::get('nama-siswa/{aku?}', 'SiswaController@detail')->name('profile');
