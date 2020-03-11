@@ -24,3 +24,23 @@ Route::get('siswa', 'SiswaController@index');
 Route::redirect('mahasiswa', 'siswa');
 
 Route::get('nama-siswa/{aku?}', 'SiswaController@detail')->name('profile');
+
+Route::prefix('admin')->group(function () {
+    Route::get('satu', function () {
+        return 'satu';
+    });
+
+    Route::get('dua', function () {
+        return 'dua';
+    });
+});
+
+// Route::fallback(function () {
+//     return 'halaman Tidak Ditemukan';
+// });
+
+Route::middleware('throttle:2,1')->group(function () {
+    Route::get('/terbatas', function () {
+        return 'terbatas';
+    });
+});
