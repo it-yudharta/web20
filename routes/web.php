@@ -44,3 +44,7 @@ Route::middleware('throttle:2,1')->group(function () {
         return 'terbatas';
     });
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
