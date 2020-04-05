@@ -48,3 +48,5 @@ Route::middleware('throttle:2,1')->group(function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('products', 'ProductController@index')->name('products.index');
