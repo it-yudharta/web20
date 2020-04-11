@@ -13,4 +13,20 @@ class ProductController extends Controller
 
         return view('product.index', [ 'products' => $products ]);
     }
+
+    public function create()
+    {
+        return view('product.create');
+    }
+
+    public function store(Request $request)
+    {
+        $product = new Product;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
+        $product->save();
+
+        return redirect()->route('products.index');
+    }
 }
