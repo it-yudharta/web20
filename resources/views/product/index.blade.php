@@ -26,6 +26,7 @@
                             <th scope="col">Nama</th>
                             <th scope="col">Harga</th>
                             <th scope="col">Qty</th>
+                            <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,6 +36,10 @@
                                 <td>{{ $product->description }}</td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->quantity }}</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" href="{{ route('products.edit', $product->id) }}" role="button">Ubah</a>
+                                    <a class="btn btn-danger btn-sm" href="#" role="button">hapus</a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
