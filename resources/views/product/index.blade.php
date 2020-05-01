@@ -38,7 +38,16 @@
                                 <td>{{ $product->quantity }}</td>
                                 <td>
                                     <a class="btn btn-success btn-sm" href="{{ route('products.edit', $product->id) }}" role="button">Ubah</a>
-                                    <a class="btn btn-danger btn-sm" href="#" role="button">hapus</a>
+                                    <a class="btn-sm btn-danger" href="{{ route('products.destroy', $product->id) }}" role="button"
+                                            onclick="event.preventDefault();
+                                            document.getElementById('destroy-product-{{$product->id}}').submit();">
+                                        Hapus
+                                    </a>
+
+                                    <form id="destroy-product-{{$product->id}}" action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
